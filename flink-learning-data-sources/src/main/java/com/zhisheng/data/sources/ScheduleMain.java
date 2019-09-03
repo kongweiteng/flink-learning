@@ -44,6 +44,10 @@ public class ScheduleMain {
         source.map(new MapFunction<MetricEvent, MetricEvent>() {
             @Override
             public MetricEvent map(MetricEvent value) throws Exception {
+                if (rules == null) {
+                    log.error("rules is no");
+                    return value;
+                }
                 if (rules.size() <= 2) {
                     System.out.println("===========2");
                 } else {
